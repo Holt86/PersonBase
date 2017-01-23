@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+
+    <servlet>
+        <servlet-name>ViewServlet</servlet-name>
+        <servlet-class>ru.testtsk.holt.servlets.ViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>ru.testtsk.holt.servlets.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/view/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>ru.testtsk.holt.servlets.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/view/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>ru.testtsk.holt.servlets.EditUserServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/view/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindUserServlet</servlet-name>
+        <servlet-class>ru.testtsk.holt.servlets.FindUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindUserServlet</servlet-name>
+        <url-pattern>/view/find</url-pattern>
+    </servlet-mapping>
+</web-app>
