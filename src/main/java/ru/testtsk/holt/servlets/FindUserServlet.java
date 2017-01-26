@@ -1,6 +1,7 @@
 package ru.testtsk.holt.servlets;
 
-import ru.testtsk.holt.base.Base;
+import ru.testtsk.holt.service.BaseFactory;
+import ru.testtsk.holt.base.BaseInterface;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import java.io.IOException;
  * Created by user on 22.01.2017.
  */
 public class FindUserServlet extends HttpServlet {
-    private static final Base BASE = Base.getInstance();
+    private static final BaseInterface BASE = BaseFactory.getBase();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getParameter("name") != null){

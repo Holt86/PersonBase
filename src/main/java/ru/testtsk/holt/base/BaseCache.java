@@ -7,19 +7,21 @@ import java.util.Collection;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by user on 20.01.2017.
  */
-public class Base {
-    private static Base ourInstance = new Base();
+public class BaseCache implements BaseInterface {
+    private static BaseCache ourInstance = new BaseCache();
     private static final ConcurrentHashMap<Integer, User> users = new ConcurrentHashMap<Integer, User>();
+    private static final AtomicInteger ID = new AtomicInteger(1);
 
-    public static Base getInstance() {
+    public static BaseCache getInstance() {
         return ourInstance;
     }
 
-    private Base() {
+    private BaseCache() {
     }
 
     public Collection<User> values(){
@@ -36,6 +38,7 @@ public class Base {
     }
 
     public void add(final User user) {
+        user.setId(ID.getAndIncrement());
         users.put(user.getId(), user);
     }
 
@@ -49,6 +52,10 @@ public class Base {
 
     public User getUser(final int id) {
         return users.get(id);
+    }
+
+    public void close() {
+       /* NOP*/
     }
 
 

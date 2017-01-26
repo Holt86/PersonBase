@@ -44,9 +44,9 @@ Enter name of user fo search
   </tr>
   <c:forEach items="${findUsers}" var="user" varStatus="status">
     <tr>
-      <td>"${user.id}</td>
-      <td>"${user.name}</td>
-      <td>"${user.age}</td>
+      <td>${user.id}</td>
+      <td>${user.name}</td>
+      <td>${user.age}</td>
       <td>
         <c:if test="${user.isAdmin()}">yes</c:if>
         <c:if test="${!user.isAdmin()}">no</c:if>
