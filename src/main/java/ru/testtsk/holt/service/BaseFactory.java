@@ -2,6 +2,7 @@ package ru.testtsk.holt.service;
 
 import ru.testtsk.holt.base.BaseCache;
 import ru.testtsk.holt.base.BaseInterface;
+import ru.testtsk.holt.base.HibernateBase;
 import ru.testtsk.holt.base.JDBCBase;
 
 /**
@@ -10,6 +11,6 @@ import ru.testtsk.holt.base.JDBCBase;
 public class BaseFactory {
 
     public static BaseInterface getBase(){
-        return JDBCBase.getInstance();
+        return HibernateBase.getInstance();
     }
 }

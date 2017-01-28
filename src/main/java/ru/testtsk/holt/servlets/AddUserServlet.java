@@ -19,6 +19,7 @@ public class AddUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         BASE.add(new User(req.getParameter("name"), Integer.parseInt(req.getParameter("age")), Boolean.parseBoolean(req.getParameter("isAdmin"))));
         resp.sendRedirect(String.format("%s%s", req.getContextPath(), "/"));
 //        resp.setContentType("text/html");

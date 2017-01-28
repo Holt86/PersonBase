@@ -7,16 +7,16 @@ import java.util.Properties;
 /**
  * Created by user on 26.01.2017.
  */
-public class Settings {
-    private static final Settings SETTINGS = new Settings();
+public class SettingsJDBC {
+    private static final SettingsJDBC SETTINGS = new SettingsJDBC();
 
     private final Properties properties = new Properties();
 
-    public static Settings getInstance() {
+    public static SettingsJDBC getInstance() {
         return SETTINGS;
     }
 
-    private Settings() {
+    private SettingsJDBC() {
         try {
             properties.load(new FileInputStream(this.getClass().getClassLoader().getResource("jdbc.properties").getFile()));
         } catch (IOException e) {

@@ -2,7 +2,7 @@ package ru.testtsk.holt.base;
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import ru.testtsk.holt.model.User;
-import ru.testtsk.holt.service.Settings;
+import ru.testtsk.holt.service.SettingsJDBC;
 
 import java.sql.*;
 import java.util.*;
@@ -16,7 +16,7 @@ public class JDBCBase implements BaseInterface {
 
 
     private JDBCBase() {
-        Settings settings = Settings.getInstance();
+        SettingsJDBC settings = SettingsJDBC.getInstance();
         try{
             Class.forName(settings.value("jdbc.driver_class"));
         }catch (ClassNotFoundException e){
@@ -76,7 +76,7 @@ public class JDBCBase implements BaseInterface {
         try (PreparedStatement statement = connection.prepareStatement("INSERT  INTO test.user(NAME, AGE, IS_ADMIN)  VALUES (?,?,?)")) {
             statement.setString(1, user.getName());
             statement.setInt(2, user.getAge());
-            statement.setBoolean(3, user.isAdmin());
+            statement.setBoolean(3, user.getIsAdmin());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class JDBCBase implements BaseInterface {
         try (PreparedStatement statement = connection.prepareStatement("UPDATE test.user SET NAME=?, AGE=?, IS_ADMIN=? WHERE ID=?")) {
             statement.setString(1, user.getName());
             statement.setInt(2, user.getAge());
-            statement.setBoolean(3, user.isAdmin());
+            statement.setBoolean(3, user.getIsAdmin());
             statement.setInt(4, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {

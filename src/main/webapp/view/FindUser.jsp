@@ -48,8 +48,8 @@ Enter name of user fo search
       <td>${user.name}</td>
       <td>${user.age}</td>
       <td>
-        <c:if test="${user.isAdmin()}">yes</c:if>
-        <c:if test="${!user.isAdmin()}">no</c:if>
+        <c:if test="${user.getIsAdmin()}">yes</c:if>
+        <c:if test="${!user.getIsAdmin()}">no</c:if>
       </td>
       <td>${user.getCreateDateString()}</td>
       <td>

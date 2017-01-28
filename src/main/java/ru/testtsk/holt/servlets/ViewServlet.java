@@ -21,9 +21,16 @@ public class ViewServlet extends HttpServlet {
     private static final BaseInterface BASE = BaseFactory.getBase();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         Collection<User> users = BASE.values();
         req.setAttribute("users", users);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/UserView.jsp");
         dispatcher.forward(req, resp);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        BASE.close();
     }
 }

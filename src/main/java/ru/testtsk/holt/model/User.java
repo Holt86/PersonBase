@@ -14,6 +14,9 @@ public class User {
     private boolean isAdmin;
     private Date createDate;
 
+    public User() {
+    }
+
     public User(String name, int age, boolean isAdmin) {
         this.name = name;
         this.age = age;
@@ -41,24 +44,40 @@ public class User {
         return id;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getAge() {
         return age;
     }
 
-    public boolean isAdmin() {
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
     }
 
     public String getCreateDateString() {
